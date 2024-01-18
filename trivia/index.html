@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            // TODO: Add code to check answers to questions
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                    <h3>How much is a cube of 3</h3>
+                        <button onclick="clickInBTN(this)" value="9">9</button>
+                        <button onclick="clickInBTN(this)" value="27">27</button>
+                        <button onclick="clickInBTN(this)" value="90">90</button>
+                        <button onclick="clickInBTN(this)" value="29">29</button>
+                        <button onclick="clickInBTN(this)" value="97">97</button>
+                </hr>
+                <div class="color-correct aside hidden">
+                    <h3 >Correct answare!</h>
+                    <p>3<sup>3</sup> = 3 	&#215; 3 	&#215; 3 = 27 </p>
+                </div>
+
+                <div class="color-incorrect aside hidden">
+                    <h3 >Incorrect answare!</h>
+                    <p>EXEMPLE: 2<sup>3</sup> = 2 	&#215; 2 	&#215; 2 = 8 </p>
+                </div>
+                <!-- TODO: Add multiple choice question here -->
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h>
+                <hr>
+                    <h3>In which country is rock in rio based?</h3>
+                    <form onsubmit="return verifyAnsware(this)">
+                        <input type="text" name="" id="answare" placeholder="Answare" autofocus>
+                        <input type="submit" value="SEND">
+                    </form>
+                    <div class="aside hidden">
+
+                    </div>
+                <!-- TODO: Add free response question here -->
+
+            </div>
+        </div>
+        <script>
+            function clickInBTN(result){
+                asideIncorrect = document.querySelectorAll(".aside")[1]
+                asideCorrect = document.querySelectorAll(".aside")[0]
+                interValue = parseInt(result.value)
+                if (interValue == 9) {
+                    result.classList.add("color-correct")
+                    asideCorrect.classList.remove("hidden")
+                    asideIncorrect.classList.add("hidden")
+                } else {
+                    result.classList.add("color-incorrect")
+                    asideIncorrect.classList.remove("hidden")
+                    asideCorrect.classList.add("hidden")
+
+                }
+            }
+
+
+            function verifyAnsware(element) {
+                answear = element.childNodes[1].value.toUpperCase()
+                response = document.querySelectorAll(".aside")[2]
+                response.classList.add("color-incorrect")
+                response.classList.remove("hidden")
+                if (answear == "") {
+                    response.innerHTML = ' <h3>Response null !</h3>'
+                    return false
+                } else if (answear == 'BRAZIL' || answear == 'BRASIL') {
+                    response.classList.remove("color-incorrect")
+                    response.classList.add("color-correct")
+                    response.innerHTML = ' <h3>Congratulations!!! Correct answer !</h3>'
+                }
+                else {
+
+                    response.innerHTML = ' <h3>Incorrect answer !</h3>'
+
+                }
+            return false
+            }
+        </script>
+    </body>
+</html>
+

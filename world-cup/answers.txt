@@ -1,0 +1,17 @@
+Times:
+
+10 simulations: 0m0.025s
+100 simulations: 0m0.025s
+1000 simulations: 0m0.031s
+10000 simulations: 0m0.088s
+100000 simulations: 0m0.729s
+1000000 simulations: 0m6.814s
+
+Questions:
+
+Which predictions, if any, proved incorrect as you increased the number of simulations?:
+The team's chances have been distributed each time the number of simulations is increased. Thus, the initial predictions of who would win would be the team with the highest rating did not come to pass.
+
+Suppose you're charged a fee for each second of compute time your program uses.
+After how many simulations would you call the predictions "good enough"?:
+By the data I would obitive choose at least 10000. It seems that after that the data tends to stabilize and not so many significant changes.
